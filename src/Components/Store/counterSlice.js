@@ -43,3 +43,15 @@ export const counterSlice = createSlice({
 
 export const { increment,decrement,incrementByValue } = counterSlice.actions;
 export default counterSlice
+
+
+
+
+
+
+
+
+
+
+
+
