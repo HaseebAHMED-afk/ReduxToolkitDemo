@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { increment,decrement,incrementByValue } from '../Store/counterSlice'
+import { increment,decrement,incrementByValue, counterUpdate } from '../Store/counterSlice'
 
 const Counter = () => {
     let [value, setValue] = useState(0)
@@ -28,6 +28,9 @@ const Counter = () => {
         dispatch(incrementByValue(Number(value)))
     }
 
+    const increaseByServer = () =>{
+        dispatch(counterUpdate())
+    }
 
     return (
         <div>
@@ -38,6 +41,7 @@ const Counter = () => {
             <button onClick={increase} >Increase</button>
             <button onClick={decrease} >Decrease</button>
             <button onClick={increaseByValue} >Increase By Value</button>
+            <button onClick={increaseByServer} >Increment By Server</button>
         </div>
     )
 }
