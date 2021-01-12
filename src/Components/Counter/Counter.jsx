@@ -5,8 +5,11 @@ import { increment,decrement,incrementByValue, counterUpdate } from '../Store/co
 const Counter = () => {
     let [value, setValue] = useState(0)
     const dispatch = useDispatch()
-    const counter = useSelector((state) => {
-        return state.counter.count
+    const {counter, isLoading} = useSelector((state) => {
+        return{ 
+           counter: state.counter.count,
+           isLoading: state.counter.isLoading
+        }
     })
 
     console.log(counter);
@@ -30,6 +33,10 @@ const Counter = () => {
 
     const increaseByServer = () =>{
         dispatch(counterUpdate())
+    }
+
+    if(isLoading){
+        return <div>Loading.....</div>
     }
 
     return (

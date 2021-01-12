@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux'
 import { store } from './Components/Store/Store';
+import { makeServer } from './server';
+
+
+makeServer();
 
 ReactDOM.render(
   <React.StrictMode>

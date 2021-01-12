@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const counterUpdate = createAsyncThunk(
     'counter/counterUpdate',
-    async () => {
+    async (value, thunkAPI) => {
         const response = await fetch('http://localhost:3000/api/updateCounter');
         const data = await response.json();
         return data;
